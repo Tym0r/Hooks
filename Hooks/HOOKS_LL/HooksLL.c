@@ -32,6 +32,7 @@ If nCode is less than zero, the hook procedure must pass the message to the Call
 without further processing and should return the value returned by CallNextHookEx.
 Para2: The identifier of the mouse message
 Para3: A pointer to an MSLLHOOKSTRUCT structure.
+
 */
 LRESULT CALLBACK LowLevelMouseProc(int nCode, WPARAM wParam, LPARAM lParam){
 	if (nCode >= 0){
@@ -107,5 +108,6 @@ int main(void){
 	}
 
 	UnhookWindowsHookEx(mouse_hook);
+	UnhookWindowsHookEx(keyboard_hook);
 	return (int)msg.wParam;
 }
